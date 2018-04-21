@@ -3,15 +3,18 @@ Simple vuex - jsonapi connector.
 
 ## Specs:
 
-1. The library should do request to any jsonapi server with configuration files describing models.
-The responses should be formatted, for vuex using, as models define. The requests in a same way.
+1. The library should be able to request any jsonapi server with several 
+configuration files describing the models.
+The responses should be formatted for vuex latter using, as models define. 
+The requests should be in the same way.
 
-1. The library offer two different APIs: **jsonapi** and **vuex**. Utilities to ease the
-use of jsonapi server implementation and **vuex** actions and getters for these entities.
+1. The library offers two different APIs: **jsonapi** and **vuex**. 
+Utilities to ease the use of jsonapi server implementation. 
+And some **vuex** actions and getters for these entities.
 
-1. Then library should accept configuration objects in this way:
+1. The library should accept configuration objects in this way:
 ```javascript
-/* ********    MODULO OPERATION **************/
+/* ******** OPERATION MODULE **************/
 const operationConf = {
   type: 'node--operation',
   attributes: {
@@ -39,7 +42,7 @@ const moduleOperation = {
   entities: [operationConf],
 };
 
-/* ***************   MODULO PLEDGE ***********/
+/* *************** PLEDGE MODULE ***********/
 const burdenConf = {
   type: 'node--burden',
   attributes: {
@@ -188,11 +191,11 @@ has the following structure:
 }
 ```
 
-1. **jsonapiService#fetch** 
-1. **jsonapiService#fetchAll** 
-1. **jsonapiService#create** 
-1. **jsonapiService#update** 
-1. **jsonapiService#remove** 
+1. **jsonapiService#fetch** // TODO
+1. **jsonapiService#fetchAll** // TODO
+1. **jsonapiService#create** // TODO
+1. **jsonapiService#update** // TODO
+1. **jsonapiService#remove** // TODO
 
 
 ## Future
