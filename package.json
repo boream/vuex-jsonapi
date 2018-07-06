@@ -1,8 +1,8 @@
 {
-  "name": "vuex-jsonapi",
+  "name": "json-vuex",
   "version": "0.0.1",
   "description": "Simple vuex - jsonapi connector.",
-  "main": "lib/library.js",
+  "main": "lib/json-vuex.js",
   "scripts": {
     "build": "webpack --env dev && webpack --env build && npm run test",
     "dev": "webpack --progress --colors --watch --env dev",

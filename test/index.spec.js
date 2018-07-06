@@ -1,8 +1,8 @@
 /* global describe, it, before */
 
 import chai from 'chai';
-import * as lib from '../lib/vuex-jsonapi.js';
-import { AjdConf } from './conifgurations';
+import * as lib from '../lib/json-vuex.js';
+import { AjdConf } from './configurations';
 
 chai.expect();
 
