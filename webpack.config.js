@@ -24,7 +24,7 @@ const config = {
     path: __dirname + '/lib',
     filename: outputFile,
     library: libraryName,
-    libraryTarget: 'umd',
+    libraryTarget: 'node',
     umdNamedDefine: true
   },
   module: {
