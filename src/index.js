@@ -51,3 +51,12 @@ export const createModule = (service, namespaced = false) => {
 export const selectId = mixin.selectId;
 export const selectIds = mixin.selectIds;
 export const search = mixin.search;
+
+export default {
+  createUtils,
+  createService,
+  createModule,
+  selectId,
+  selectIds,
+  search
+};

@@ -1,7 +1,7 @@
 /* global describe, it, before */
 
 import chai from 'chai';
-import * as lib from '../lib/json-vuex.js';
+import lib from '../lib/json-vuex.js';
 import { AjdConf } from './configurations';
 
 chai.expect();
@@ -18,6 +18,7 @@ let createService;
 
 describe('Given an instance of my jsonapi service', () => {
   before(() => {
+    expect(lib).to.not.equal(undefined);
     createService = lib.createService(httpService, AjdConf, 'http://api.example.com');
   });
   describe('createService', () => {

@@ -1,6 +1,8 @@
 /* global __dirname, require, module*/
 
-var path = require('path');
+const webpack = require('webpack');
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const path = require('path');
 const env = require('yargs').argv.env; // use --env with webpack 2
 const pkg = require('./package.json');
 
@@ -24,7 +26,7 @@ const config = {
     path: __dirname + '/lib',
     filename: outputFile,
     library: libraryName,
-    libraryTarget: 'node',
+    libraryTarget: 'umd',
     umdNamedDefine: true
   },
   module: {
@@ -44,6 +46,19 @@ const config = {
   resolve: {
     modules: [path.resolve('./node_modules'), path.resolve('./src')],
     extensions: ['.json', '.js']
+  },
+  optimization: {
+    minimizer: [
+      new UglifyJsPlugin({
+        sourceMap: true,
+        uglifyOptions: {
+          exclude: /lib\/json-vuex.min.js/,
+          compress: {
+            inline: false
+          }
+        }
+      })
+    ]
   },
   externals: {
     lodash: {
