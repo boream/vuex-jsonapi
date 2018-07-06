@@ -71,7 +71,6 @@ function createAddSearchedEntitiesMutation() {
   };
 }
 
-
 function createUpsertAction(service) {
   return (store, payload) => {
     let promise = null;
@@ -133,7 +132,7 @@ export function createEntityState() {
     ids: [],
     entities: {},
     entitiesStatus: {},
-    searchedEntities: [],
+    searchedEntities: []
   };
 }
 
@@ -143,7 +142,7 @@ export function createMutations() {
     [REMOVE_ENTITY]: createRemoveMutation(),
     [UPDATE_ENTITY_STATUS]: createUpdateEntityStatusMutation(),
     [UDPATE_STATUS]: createUpdateStatusMutation(),
-    [ADD_SEARCHED_ENTITIES]: createAddSearchedEntitiesMutation(),
+    [ADD_SEARCHED_ENTITIES]: createAddSearchedEntitiesMutation()
   };
 }
 
@@ -151,7 +150,7 @@ export function createActions(service) {
   return {
     [UPSERT_ENTITY_ACTION]: createUpsertAction(service),
     [REMOVE_ENTITY_ACTION]: createRemoveAction(service),
-    [FETCH_ACTION]: createFetchAction(service),
+    [FETCH_ACTION]: createFetchAction(service)
   };
 }
 
@@ -160,6 +159,6 @@ export function createGetters() {
     [ENTITIES_GETTER]: createEntitiesGetterAction(),
     [ENTITIES_ARRAY_GETTER]: createArrayGetterAction(),
     [STATUS_GETTER]: createStatusEntitiesGetterAction(),
-    [STATUS_ARRAY_GETTER]: createStatusArrayGetterAction(),
+    [STATUS_ARRAY_GETTER]: createStatusArrayGetterAction()
   };
 }

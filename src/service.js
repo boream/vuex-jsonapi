@@ -105,7 +105,10 @@ export function doFetch(httpService, query, processor, queryBuilder, localSearch
     if (Array.isArray(resolvedStrings.parents) && resolvedStrings.parents.length > 0) {
       while (index < results.length) {
         // parents.push(...results[index].data.data);
-        parents.push(..._.differenceWith(results[index].data.data, parents, (arrVal, othVal) => arrVal.id !== othVal.id));
+        parents.push(..._.differenceWith(
+          results[index].data.data,
+          parents,
+          (arrVal, othVal) => arrVal.id !== othVal.id));
         if (Array.isArray(results[index].data.included)) {
           // eslint-disable-next-line no-loop-func
           results[index].data.included.forEach((entity) => {
@@ -113,7 +116,7 @@ export function doFetch(httpService, query, processor, queryBuilder, localSearch
               const entityWithParent = processor(entity);
               entityWithParent.parentSearched = {
                 id: results[index].data.id,
-                type: results[index].data.type,
+                type: results[index].data.type
               };
               entitiesResponse[entity.id] = entityWithParent;
               finalResponse.push(entity);
@@ -125,7 +128,7 @@ export function doFetch(httpService, query, processor, queryBuilder, localSearch
     }
     return {
       entities: localSearch(entitiesResponse, query),
-      parents: parents.map(val => ({ id: val.id, type: val.type })),
+      parents: parents.map(val => ({ id: val.id, type: val.type }))
     };
   });
 }

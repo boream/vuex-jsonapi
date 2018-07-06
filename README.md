@@ -6,7 +6,7 @@ Simple vuex - jsonapi connector.
 1. The library should be able to request any jsonapi server with several 
 configuration files describing the models.
 The responses should be formatted for vuex latter using, as models define. 
-The requests should be in the same way.
+The requests should be defined in the same way.
 
 1. The library offers two different APIs: **jsonapi** and **vuex**. 
 Utilities to ease the use of jsonapi server implementation. 

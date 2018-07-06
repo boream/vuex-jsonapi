@@ -131,13 +131,15 @@ function formatFactory(conf) {
 }
 
 export default function formatExecutor(modelInstance, conf) {
-  const id = 'id' in modelInstance && modelInstance.id !== '' && modelInstance.id !== 'dummy' ? modelInstance.id : undefined;
-  const type = (_.has(modelInstance, 'type') && _.isString(modelInstance.type) && modelInstance.type !== '') ? modelInstance.type : conf.type;
+  const id = 'id' in modelInstance && modelInstance.id !== '' && modelInstance.id !== 'dummy' ?
+    modelInstance.id : undefined;
+  const type = (_.has(modelInstance, 'type') && _.isString(modelInstance.type) && modelInstance.type !== '') ?
+    modelInstance.type : conf.type;
   const serverInstance = {
     id,
     type,
     attributes: {},
-    relationships: {},
+    relationships: {}
   };
   const formatters = formatFactory(conf);
   if (!_.isEmpty(formatters.formatAttributesFactories)) {

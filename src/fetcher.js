@@ -18,10 +18,8 @@ const NOT_BETWEEN_OPERATOR = 'NOT BETWEEN';
 const IS_NULL_OPERATOR = 'IS NULL';
 const IS_NOT_NULL_OPERATOR = 'IS NOT NULL';
 
-
 const AND_CONJUCTION = 'AND';
 // const OR_CONJUCTION = 'OR';
-
 
 /* *********** Server Fetching functions **************************** */
 
@@ -58,6 +56,7 @@ function calculateValueStr(operator, value, valueSchema) {
 function doEntity(query) {
   let entity = {};
   const entityGroups = {};
+
   if ('id' in query && query.id !== '' && query.id !== 'dummy') {
     entity = query.id;
   } else {
@@ -67,11 +66,12 @@ function doEntity(query) {
           path: `filter[${filterName}-filter][condition][path]=`,
           operator: `filter[${filterName}-filter][condition][operator]=`,
           value: `filter[${filterName}-filter][condition][value]`,
-          memberOf: `filter[${filterName}-filter][condition][memberOf]=`,
+          memberOf: `filter[${filterName}-filter][condition][memberOf]=`
         };
         const pathStr = `${genericFilter.path}${filter.path}`;
         const operatorStr = `${genericFilter.operator}${filter.operator}`;
         const valueStr = calculateValueStr(filter.operator, filter.value, genericFilter.value);
+
         if (typeof valueStr === 'string') {
           if (_.has(filter, 'memberOf') && filter.memberOf && filter.memberOf !== '') {
             const memberOfStr = `${genericFilter.memberOf}${filter.memberOf}-group`;
@@ -97,7 +97,7 @@ function doParents(query) {
         path: `filter[${filterName}-filter][condition][path]=`,
         operator: `filter[${filterName}-filter][condition][operator]=`,
         value: `filter[${filterName}-filter][condition][value]`,
-        memberOf: `filter[${filterName}-filter][condition][memberOf]=`,
+        memberOf: `filter[${filterName}-filter][condition][memberOf]=`
       };
       const pathStr = `${genericFilter.path}${filter.path}`;
       const operatorStr = `${genericFilter.operator}${filter.operator}`;
@@ -134,8 +134,8 @@ function createGroups(query, entityGroups, parentsGroups) {
   const queryWithMainGroup = _.merge({}, query, {
     main: {
       conjunction: AND_CONJUCTION,
-      memberOf: null,
-    },
+      memberOf: null
+    }
   });
   const entity = {};
   const fromParents = {};
@@ -213,10 +213,11 @@ function queryFactory(query, conf) {
 
 export function queryBuilder(query, conf) {
   const { urls, entity, parents, parentsReferences } = queryFactory(query, conf);
-// eslint-disable-next-line quote-props
+  // eslint-disable-next-line quote-props
   const resolvedString = { 'entity': '', 'parents': [] };
-// eslint-disable-next-line no-nested-ternary
-  const id = (typeof entity === 'string') ? entity : (entity && 'id' in entity && entity.id !== '' && entity.id !== 'dummy' ? entity.id : null);
+  // eslint-disable-next-line no-nested-ternary
+  const id = (typeof entity === 'string') ? entity :
+    (entity && 'id' in entity && entity.id !== '' && entity.id !== 'dummy' ? entity.id : null);
   if (id) { // ID entity search
     resolvedString.entity = `${urls[0]}/${id}`;
   } else if (_.isEmpty(query)) {
@@ -290,8 +291,8 @@ export function formatGroups(payload) {
   const groups = {
     main: {
       conjunction: 'AND',
-      filters: [],
-    },
+      filters: []
+    }
   };
   _.forOwn(payload, (field, conjunctionName) => {
     if (_.has(field, 'conjunction')) {

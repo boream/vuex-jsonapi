@@ -28,6 +28,6 @@ export default {
   methods: {
     selectId,
     selectIds,
-    search,
-  },
+    search
+  }
 };

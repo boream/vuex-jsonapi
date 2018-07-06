@@ -1,7 +1,6 @@
 import _ from 'lodash';
 import { DateTime } from 'luxon';
 
-
 /* PROCESSORS */
 
 function doAttributesProcess(model, name, value, conf) {
@@ -32,7 +31,6 @@ function doAttributesArrayProcess(model, name, value, conf) {
     doAttributesProcess(model, name, value, conf);
   }
 }
-
 
 function doRelationshipProcess(model, name, value, isArray = false) {
   if (isArray) {
