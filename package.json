@@ -1,6 +1,6 @@
 {
   "name": "json-vuex",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Simple vuex - jsonapi connector.",
   "main": "lib/json-vuex.js",
   "scripts": {
